@@ -1,0 +1,9 @@
+.header {
+    display: flex;
+    alignItems: center;
+    paddingLeft: 38;
+    paddingRight: 0;
+    top: 0;
+    position: sticky;
+    z-index: 1;
+}

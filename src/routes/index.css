@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../static/SourceHanSansCN-Normal.otf');
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'MyCustomFont';
+}
+
+.animate__animated.animate__fadeIn {
+  animation-delay: 0.5s;
+}
+
+* {
+  font-family: 'MyCustomFont';
+}
+

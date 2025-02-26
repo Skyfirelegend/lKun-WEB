@@ -1,0 +1,107 @@
+.advantageWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+.myCardWrapper {
+  width: calc(50% - 15px);
+  position: relative;
+
+  &:first-child {
+    margin-right: 30px;
+  }
+
+  &:hover {
+    box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.card1,
+.card2,
+.card3,
+.card4 {
+  width: 100%;
+  padding: 32px 0 34px 30px;
+
+  .text {
+    color: #333;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+  }
+}
+
+
+.textWrapper {
+  width: 100%;
+  padding: 50px 0 44px 0;
+  background-image: url("../../static/textbg.png");
+  background-size: 100% 100%;
+  text-align: center;
+  position: relative;
+  top: -6px;
+}
+
+:global {
+  .slick-dots {
+    li {
+      background-color: rgba(15, 98, 240, 0.2);
+      width: 143px !important;
+      height: 4px !important;
+      border-radius: 4px;
+    }
+
+    li.slick-active {
+      background-color: rgba(15, 98, 240, 1);
+    }
+  }
+}
+
+.pDataWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.dataWrapper {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.imgCard {
+  width: 100%;
+  padding-top: 17px;
+  text-align: center;
+img{
+  display: inline-block;
+  height: 40px;
+}
+.text{
+  background: #F6F9FF;
+  padding: 17px 0;
+  margin-top: 17px;
+  color: #333;
+text-align: center;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 26px;
+}
+}

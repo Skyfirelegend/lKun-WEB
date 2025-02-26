@@ -1,0 +1,64 @@
+.about {
+  .banner {
+    // padding: 51px 0 111px 60px;
+    // background-image: url('./img/aboutBanner.png');
+    // background-size: 100% 100%;
+    img{
+      display: block;
+      width: 100%;
+    }
+    .title {
+      color: #FFF;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 50px;
+    }
+
+    .desc {
+      width: 393px;
+      color: rgba(255,255,255,0.8);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .tabs {
+    :global {
+      .ant-tabs-nav-wrap {
+        padding-left: 31px;
+
+        .ant-tabs-tab {
+          padding-top: 11px;
+          padding-bottom: 11px;
+
+          .ant-tabs-tab-btn {
+            color: #333;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+          }
+        }
+
+        .ant-tabs-tab.ant-tabs-tab-active {
+          .ant-tabs-tab-btn {
+            color: #0F62F0;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 28px;
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          height: 3px;
+        }
+      }
+    }
+  }
+}

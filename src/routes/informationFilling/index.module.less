@@ -1,0 +1,71 @@
+.informationFilling {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  background-image: url('../login/img/background.png');
+  background-size: 100% 100%;
+.content{
+  width: 390px;
+  height: 460px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+  .modalContent {
+    padding: 20px 40px 0 40px;
+
+    .myInput {
+      border: none;
+      border-bottom: 1px solid rgba(51, 51, 51, .3) !important;
+      border-radius: 0;
+      outline: none;
+      box-shadow: unset;
+      padding: 0;
+
+      &:hover,
+      &:focus {
+        border-bottom: 1px solid rgba(51, 51, 51, .3) !important;
+        box-shadow: unset;
+      }
+    }
+  }
+
+  .myButton {
+    border-radius: unset;
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    padding: 11px;
+    margin: 24px 0 40px 0;
+  }
+
+  :global {
+    .ant-modal-content {
+      padding: 0;
+    }
+
+    .ant-modal-close {
+      top: 0px;
+      right: 0px;
+    }
+
+    .ant-form-item {
+      margin-bottom: 15px;
+    }
+  }
+}
+.informationFillingModalTitle {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
