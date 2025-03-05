@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { Dimensions } from "react-native-cli";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
 import { Tips } from '../../login/page'
@@ -18,12 +18,19 @@ import CloudPic1 from "./img/CloudPic1.svg";
 import CloudPic2 from "./img/CloudPic2.svg";
 import cloudBanner from '../img/cloudBanner.png';
 
+import 'animate.css'
 
 const Index = () => {
   const [showTip, setShowTip] = useState(false);
   const [cView, setCView] = useState(0);
   // const { width, height } = Dimensions.get('windows');
   // const containerWidth = width * 0.1;
+
+  useEffect(() => {
+    document.title = '专属定制云';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <div className={styles.products} id="products">
@@ -41,18 +48,18 @@ const Index = () => {
 
 
           <div className={styles2.ClickBtn}>
-            <Button
-              className={styles2.ClickBtnItem}
+            <div
+              className={cView === 0 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(0)}
             >
               传统私有云与公有云
-            </Button>
-            <Button
-              className={styles2.ClickBtnItem}
+            </div>
+            <div
+              className={cView === 1 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(1)}
             >
               专属定制云
-            </Button>
+            </div>
           </div>
 
 
@@ -60,6 +67,8 @@ const Index = () => {
             {
               cView === 0 &&
               <img src={CloudPic1} alt="" />
+              // <div className={styles2.PicAnimate}><img src={CloudPic1} alt="" /></div>
+              // <div className="animate__animated animate__fadeIn" style={{ '--animate-duration': '0.5s' }}><img src={CloudPic1} alt="" /></div>
             }
             {
               cView === 1 &&

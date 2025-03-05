@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, Form, Input, Checkbox } from "antd";
 import clsx from "clsx";
-import {Tips} from '../login/page'
+import { Tips } from '../login/page'
 import logo from "../login/img/logo.png";
 import styles from "./index.module.less";
 
@@ -9,8 +9,13 @@ const LoginForm = ({ activite }) => {
   const [isCheck, setCheck] = useState(false);
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
-  const [time,setTime] = useState(0);
+  const [time, setTime] = useState(0);
   const [showTip, setTip] = useState(false);
+  useEffect(() => {
+    document.title = '注册';
+    window.scrollTo(0, 0);
+  }, []);
+
   const obj = {
     1: {
       accountPlaceholder: "请输入邮箱地址",
@@ -24,7 +29,7 @@ const LoginForm = ({ activite }) => {
   };
   return (
     <div className={styles.formWrapper}>
-      {showTip &&  <Tips text={'注册成功'} />}
+      {showTip && <Tips text={'注册成功'} />}
       <Form>
         <Form.Item>
           <Input

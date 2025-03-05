@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
 import { Tips } from '../../login/page'
 import chip from "../img/chip.png";
@@ -98,6 +98,12 @@ const serverData = [
 ];
 const Index = () => {
   const [showTip, setShowTip] = useState(false);
+
+  useEffect(() => {
+    document.title = '弹性AI算力资源';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <div className={styles.products} id="products">
@@ -137,7 +143,7 @@ const Index = () => {
               <div className={styles2.Text1}>
                 包年包月计费更优惠，适合中长期稳定的IT需求。
               </div>
-              <a className={styles2.cusmDesc} href="/document">
+              <a className={styles2.cusmDesc} href="/document" target="_blank">
                 <div className={styles2.Text2}>
                   计费说明
                 </div>

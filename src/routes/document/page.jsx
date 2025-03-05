@@ -1,6 +1,6 @@
 import { ConfigProvider, Layout } from 'antd';
 import { Flex } from 'antd';
-import React from 'react';
+import React, { useEffect } from 'react';
 import lingang from './img/lingang.png';
 import shenzhenUniversity from './img/shenzhen-university.png';
 import zhongan from './img/zhongan.png'
@@ -21,31 +21,44 @@ const data = [
   },
 
 ]
-const Index = () => (
-  <FadeInContainer children={
-    <div className={styles.example}>
-      <div className={styles.banner}>
-        <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={banner} alt="" />
-        {/* <div className={styles.title}>客户案例</div>
-      <div className={styles.subTitle}>赋能高校客户科学研究，助力企业客户数字转型，支持算力</div>
-      <div className={styles.subTitle}>集群客户算力调度。</div> */}
-      </div>
-      {
-        data.map(item => {
-          return (
-            <div className={styles.items} key={item.title}>
-              <img src={item.img} alt="" />
-              <div className={styles.text}>
-                <div className={styles.title}>{item.title}</div>
-                <div className={styles.desc}>{item.desc}</div>
-              </div>
-            </div>
-          )
-        })
-      }
-    </div>
-  } />
+const Index = () => {
 
-);
+  useEffect(() => {
+    document.title = '产品文档';
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div>
+      待添加内容
+    </div>
+    // < FadeInContainer children={
+    //   < div className={styles.example} >
+    //     <div className={styles.banner}>
+    //       <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={banner} alt="" />
+    //       {/* <div className={styles.title}>客户案例</div>
+    //       <div className={styles.subTitle}>赋能高校客户科学研究，助力企业客户数字转型，支持算力</div>
+    //       <div className={styles.subTitle}>集群客户算力调度。</div> */}
+    //     </div>
+    //     {
+    //       data.map(item => {
+    //         return (
+    //           <div className={styles.items} key={item.title}>
+    //             <img src={item.img} alt="" />
+    //             <div className={styles.text}>
+    //               <div className={styles.title}>{item.title}</div>
+    //               <div className={styles.desc}>{item.desc}</div>
+    //             </div>
+    //           </div>
+    //         )
+    //       })
+    //     }
+    //   </div >
+    // } />
+  );
+};
+
+
+
 
 export default Index;

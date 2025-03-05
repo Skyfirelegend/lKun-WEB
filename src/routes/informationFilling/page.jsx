@@ -3,8 +3,14 @@ import { Modal, Form, Input, Button } from 'antd'
 import styles from './index.module.less';
 import modalHeadBg from '../products/img/modalHeadBg.png'
 import { Tips } from '../login/page'
+import { useEffect } from 'react';
 const InformationFilling = () => {
   const [showTip, setShowTip] = useState(false)
+
+  useEffect(() => {
+    document.title = '信息收集';
+  }, []);
+
   return (
     <div className={styles.informationFilling}>
       <div className={styles.content}>

@@ -3,8 +3,14 @@ import qrcode2 from './img/qrcode2.png'
 import aboutBanner from './img/aboutBanner.png'
 import styles from "./index.module.less";
 import FadeInContainer from '../../../components/common'
+import React, { useState, useEffect } from "react";
 
 const ContactUs = () => {
+  useEffect(() => {
+    document.title = '联系我们';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <>

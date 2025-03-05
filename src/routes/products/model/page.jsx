@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
 import { Tips } from '../../login/page'
 import chip from "../img/chip.png";
@@ -13,14 +13,14 @@ import modelBanner from '../img/modelBanner.svg';
 import styles2 from "./index.module.less";
 import modelBtnbg from '../img/modelBtnbg.svg'
 
-import Pap from './img/pap.png';
+import Pap from './img/pap.svg';
 import Tensorflow from './img/Tensorflow.svg';
 import PyTorch from './img/PyTorch.svg';
-import Stab from './img/stab.png'
+import Stab from './img/stab.svg'
 import Youyun from './img/youyun.png'
-import Tongyi from './img/tongyi.png'
+import Tongyi from './img/tongyi.svg'
 import Gitee from './img/Gitee.png'
-import Nvidia from './img/nvidia.png'
+import Nvidia from './img/nvidia.svg'
 
 import BanBtn from './img/BanBtn.svg'
 
@@ -81,6 +81,12 @@ const aigc = [
 const Index = () => {
   const [showTip, setShowTip] = useState(false);
   const [cView, setCView] = useState(0)
+
+  useEffect(() => {
+    document.title = '模型训练与推理';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <div className={styles.products} id="products">
@@ -94,20 +100,18 @@ const Index = () => {
 
 
           <div className={styles2.ClickBtn}>
-            <Button
-              className={styles2.ClickBtnItem}
+            <div
+              className={cView === 0 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(0)}
             >
               深度学习框架
-            </Button>
-
-            <Button
-              className={styles2.ClickBtnItem}
+            </div>
+            <div
+              className={cView === 1 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(1)}
             >
               AIGC应用
-            </Button>
-
+            </div>
           </div>
 
           <div className={styles2.example}>

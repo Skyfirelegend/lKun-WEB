@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Flex, ConfigProvider, Layout } from 'antd';
 import { Outlet } from '@modern-js/runtime/router';
 import 'animate.css'
@@ -12,6 +12,11 @@ export default function GLayout() {
   const dealShowPage = () => {
     return ['/login', '/registry'].includes(location.pathname);
   }
+
+  // useEffect(() => {
+  //   document.title = '主页';
+  // }, []);
+
   return (
     <ConfigProvider
       theme={{

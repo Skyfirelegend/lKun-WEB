@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, Form, Input, Checkbox } from "antd";
 import clsx from "clsx";
 import logo from "./img/logo.png";
 import successIcon from "./img/success.png";
 import styles from "./index.module.less";
 
-export const Tips = ({text}) => {
+export const Tips = ({ text }) => {
   return (
     <div className={styles.tip}>
       <img src={successIcon} alt="" />
@@ -18,21 +18,25 @@ const LoginForm = ({ activite }) => {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const [showTip, setTip] = useState(false);
-  const [time,setTime] = useState(0);
-  const obj ={
-    '1':{
-      accountPlaceholder:'请输入用户名',
-      passwordPlaceholder:'请输入密码'
+  const [time, setTime] = useState(0);
+  useEffect(() => {
+    document.title = '登录';
+    window.scrollTo(0, 0);
+  }, []);
+  const obj = {
+    '1': {
+      accountPlaceholder: '请输入用户名',
+      passwordPlaceholder: '请输入密码'
     },
-    '2':{
-       accountPlaceholder:'请输入您的手机号',
-        passwordPlaceholder:'请输入验证码'
+    '2': {
+      accountPlaceholder: '请输入您的手机号',
+      passwordPlaceholder: '请输入验证码'
     }
   }
 
   return (
     <div className={styles.formWrapper}>
-     {showTip &&  <Tips text={'登录成功'} />}
+      {showTip && <Tips text={'登录成功'} />}
       <Form>
         <Form.Item>
           <Input
@@ -44,32 +48,32 @@ const LoginForm = ({ activite }) => {
           />
         </Form.Item>
         <Form.Item className={styles.myItem}>
-          {activite === '1' &&<Input.Password
+          {activite === '1' && <Input.Password
             onChange={(e) => {
               setPassword(e.target.value);
             }}
             className={styles.myInput}
             placeholder={obj[activite]['passwordPlaceholder']}
           />}
-          {activite==='2'&&<div className={styles.inputBox}>
-            <Input className={styles.myInput} placeholder={obj[activite]['passwordPlaceholder']}/>
-            <div className={clsx(styles.code, time && styles.disabled)} onClick={()=>{
-              if(time>0){
+          {activite === '2' && <div className={styles.inputBox}>
+            <Input className={styles.myInput} placeholder={obj[activite]['passwordPlaceholder']} />
+            <div className={clsx(styles.code, time && styles.disabled)} onClick={() => {
+              if (time > 0) {
                 return
               }
               let v = 60;
               let timer = setInterval(() => {
-                if(v>=0){
+                if (v >= 0) {
                   setTime(v--)
                 }
-                if(v===-1){
+                if (v === -1) {
                   clearInterval(timer)
                 }
 
 
               }, 1000);
             }}>
-              {time>0?`重新发送(${time})`:'获取验证码'}
+              {time > 0 ? `重新发送(${time})` : '获取验证码'}
             </div>
           </div>}
         </Form.Item>

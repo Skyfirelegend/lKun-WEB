@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 import introduceBanner from './img/introduceBanner.png';
 import introduceBannerTwo from './img/introduceBannerTwo.png'
 import aboutBanner from './img/aboutBanner.png'
 import styles from './index.module.less';
 import FadeInContainer from '../../../components/common';
-
 import introducePic3_1 from './img/introducePic3-1.png';
 import introducePic3_2 from './img/introducePic3-2.png';
 
@@ -13,6 +12,12 @@ import introducePic3_2 from './img/introducePic3-2.png';
 const Introduce = () => {
   const [showTip, setShowTip] = useState(false);
   const [cView, setCView] = useState(0);
+
+  useEffect(() => {
+    document.title = '公司介绍';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <>
@@ -20,7 +25,7 @@ const Introduce = () => {
           <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={aboutBanner} alt="" />
         </div>
 
-        <div className={styles.ClickBtn}>
+        {/* <div className={styles.ClickBtn}>
           <Button
             className={styles.ClickBtnItem}
             onClick={() => setCView(0)}
@@ -39,7 +44,30 @@ const Introduce = () => {
           >
             联合实验室
           </Button>
+        </div> */}
+
+
+        <div className={styles.ClickBtn}>
+          <div
+            className={cView === 0 ? styles.ClickBtnItemClick : styles.ClickBtnItemNoClick}
+            onClick={() => setCView(0)}
+          >
+            朗科科技
+          </div>
+          <div
+            className={cView === 1 ? styles.ClickBtnItemClick : styles.ClickBtnItemNoClick}
+            onClick={() => setCView(1)}
+          >
+            朗坤科技
+          </div>
+          <div
+            className={cView === 2 ? styles.ClickBtnItemClick : styles.ClickBtnItemNoClick}
+            onClick={() => setCView(2)}
+          >
+            联合实验室
+          </div>
         </div>
+
 
         <div className={styles.tabs}>
           <div className={styles.introduce}>

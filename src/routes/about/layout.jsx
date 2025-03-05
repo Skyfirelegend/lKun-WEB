@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd'
 import { Outlet } from '@modern-js/runtime/router';
 import aboutBanner from './img/aboutBanner.png'

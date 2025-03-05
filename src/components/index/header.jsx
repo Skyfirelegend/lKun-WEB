@@ -86,14 +86,14 @@ const CPOHeader = () => {
           ),
           key: 'introduce',
         },
-        {
-          label: (
-            <Link prefetch="render" to="/about/ServiceConter">
-              客服中心
-            </Link>
-          ),
-          key: 'serviceConter',
-        },
+        // {
+        //   label: (
+        //     <Link prefetch="render" to="/about/ServiceConter">
+        //       客服中心
+        //     </Link>
+        //   ),
+        //   key: 'serviceConter',
+        // },
         {
           label: (
             <Link prefetch="render" to="/about/ContactUs">
@@ -105,6 +105,7 @@ const CPOHeader = () => {
       ]
     },
   ]
+
   return (
     <Flex
       style={{ width: '100%', height: '100%' }}
@@ -132,6 +133,9 @@ const CPOHeader = () => {
             height: '100%',
           }}
         >
+          {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/login">
+            登录
+          </Button> */}
           <Button color="default" variant="link" href="/login">
             登录
           </Button>
@@ -145,6 +149,9 @@ const CPOHeader = () => {
             background: 'rgba(15, 98, 240, 1)',
           }}
         >
+          {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/register">
+            <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
+          </Button> */}
           <Button color="default" variant="link" href="/registry">
             <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
           </Button>

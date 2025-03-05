@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
 import { Tips } from '../../login/page'
 import chip from "../img/chip.png";
 import doc from "../img/doc.png";
 import settingIcon from "../img/settingIcon.png";
-import frameworkproductPic from "./img/frameworkproductPic.svg";
+import frameworkproductPic from "./img/frameworkproductPic.png";
 import frameworkPic from "../img/frameworkPic.svg";
 import computeBanner from '../img/computeBanner.png';
 import serveBanner from '../img/serveBanner.png';
@@ -27,6 +27,12 @@ import cardBg6 from './img/cardbg6.svg';
 const Index = () => {
   const [showTip, setShowTip] = useState(false);
   const [cView, setCView] = useState(0);
+
+  useEffect(() => {
+    document.title = '算力调度平台';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <FadeInContainer children={
       <div className={styles.products} id="products">
@@ -45,19 +51,20 @@ const Index = () => {
           </div> */}
 
 
+
           <div className={styles2.ClickBtn}>
-            <Button
-              className={styles2.ClickBtnItem}
+            <div
+              className={cView === 0 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(0)}
             >
               产品优势
-            </Button>
-            <Button
-              className={styles2.ClickBtnItem}
+            </div>
+            <div
+              className={cView === 1 ? styles2.ClickBtnItemClick : styles2.ClickBtnItemNoClick}
               onClick={() => setCView(1)}
             >
               技术架构
-            </Button>
+            </div>
           </div>
 
 
