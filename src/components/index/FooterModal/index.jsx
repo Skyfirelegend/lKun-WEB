@@ -6,7 +6,7 @@ const FooterModal = ({ close }) => {
     <div className={clsx(styles.footerModal, 'animate__animated  animate__fadeIn')}>
       <div className={styles.wrapper}>
         <div className={styles.item} onClick={() => {
-          window.open('/informationFilling', '_self')
+          window.open('/informationFilling?gotopage=info', '_self')
         }}>
           <div className={styles.icon}>
             <svg
@@ -29,7 +29,7 @@ const FooterModal = ({ close }) => {
           <div className={styles.text}>我要卖算力</div>
         </div>
         <div className={styles.item} onClick={() => {
-          window.open('/products/server', '_self')
+          window.open('/products/server?gotopage=server', '_self')
         }}>
           <div className={styles.icon}>
             <svg
@@ -54,7 +54,7 @@ const FooterModal = ({ close }) => {
           <div className={styles.text}>我要买算力</div>
         </div>
         <div className={styles.item} onClick={() => {
-          window.open('/informationFilling', '_self')
+          window.open('/informationFilling?gotopage=info', '_self')
         }}>
           <div className={styles.text}>算力券补贴</div>
         </div>

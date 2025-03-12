@@ -97,11 +97,12 @@ const serverData = [
   },
 ];
 const Index = () => {
-  const [showTip, setShowTip] = useState(false);
+  const [showClick1, setClick1] = useState(false);
+  const [showClick2, setClick2] = useState(0);
 
   useEffect(() => {
     document.title = '弹性AI算力资源';
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -122,7 +123,7 @@ const Index = () => {
               <div className={styles2.Text1}>
                 区域
               </div>
-              <div className={styles2.btn1}>
+              <div className={showClick1 ? styles2.btn1Click : styles2.btn1} onClick={() => setClick1(!showClick1)}>
                 华南二区
               </div>
             </div>
@@ -131,10 +132,10 @@ const Index = () => {
               <div className={styles2.Text2}>
                 计费模式
               </div>
-              <div className={styles2.btn2}>
+              <div className={showClick2 === 1 ? styles2.btn2Click : styles2.btn2} onClick={() => setClick2(1)}>
                 按需计费
               </div>
-              <div className={styles2.btn3}>
+              <div className={showClick2 === 2 ? styles2.btn3Click : styles2.btn3} onClick={() => setClick2(2)}>
                 包年包月
               </div>
             </div>
@@ -143,7 +144,7 @@ const Index = () => {
               <div className={styles2.Text1}>
                 包年包月计费更优惠，适合中长期稳定的IT需求。
               </div>
-              <a className={styles2.cusmDesc} href="/document" target="_blank">
+              <a className={styles2.cusmDesc} href="/document?gotopage=document" target="_blank">
                 <div className={styles2.Text2}>
                   计费说明
                 </div>
@@ -183,7 +184,18 @@ const Index = () => {
                     <div className={styles.line2}></div>
                     <div className={styles.price}>
                       {/* <div className={styles.label}>价格<span style={{ fontStyle: 'italic', fontWeight: '700', fontSize: '28px', color: 'rgba(255, 120, 0, 1)' }}> 低至5折！</span></div> */}
-                      <div className={styles.value}>￥<span style={{ fontSize: '28px', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>{item.price}</span><Text delete>{item.costPrice}</Text>/时</div>
+                      {/* <div className={styles.value}>￥<span style={{ fontSize: '28px', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>{item.price}</span><Text delete>{item.costPrice}</Text>/时</div> */}
+                      <div className={styles.value}>
+                        ￥
+                        <span style={{ fontSize: '1.82vw', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>
+                          {item.price}
+                        </span>
+                        <Text delete style={{ fontSize: '0.9vw' }}>
+                          {/* <Text delete> */}
+                          {item.costPrice}
+                        </Text>
+                        /时
+                      </div>
                       <div className={styles.buyBtn}><a href="http://8.134.32.42:20000/cloud">立即购买</a></div>
                     </div>
                   </div>
@@ -265,7 +277,7 @@ const Index = () => {
             <div><a href="http://8.134.32.42:20000/cloud">立即使用  →</a></div>
             {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
           </div>
-          <div><a className={styles.btn2} href="/informationFilling">了解更多</a></div>
+          <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
         </div>
       </div >
     } />

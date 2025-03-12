@@ -27,8 +27,10 @@
     "@ant-design/icons": "^5.5.2",
     "@modern-js/plugin-ssg": "^2.63.0",
     "@modern-js/runtime": "2.63.0",
+    "@reduxjs/toolkit": "^2.6.1",
     "animate.css": "^4.1.1",
     "antd": "^5.22.2",
+    "axios": "^1.8.2",
     "clsx": "^2.1.1",
     "motion": "^11.12.0",
     "rc-queue-anim": "^2.0.0",
@@ -37,6 +39,7 @@
     "react-dom": "^18.3.1",
     "react-native-cli": "^2.0.1",
     "react-native-web": "^0.19.13",
+    "react-redux": "^9.2.0",
     "schema-utils": "^4.3.0"
   },
   "devDependencies": {

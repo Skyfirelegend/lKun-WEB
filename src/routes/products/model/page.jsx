@@ -17,9 +17,9 @@ import Pap from './img/pap.svg';
 import Tensorflow from './img/Tensorflow.svg';
 import PyTorch from './img/PyTorch.svg';
 import Stab from './img/stab.svg'
-import Youyun from './img/youyun.png'
+import Youyun from './img/youyun.svg'
 import Tongyi from './img/tongyi.svg'
-import Gitee from './img/Gitee.png'
+import Gitee from './img/Gitee.svg'
 import Nvidia from './img/nvidia.svg'
 
 import BanBtn from './img/BanBtn.svg'
@@ -95,7 +95,7 @@ const Index = () => {
             <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={modelBanner} alt="" />
             {/* <img style={{ width: '20%', left: '5%', transform: 'translate(0%,-170%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
             <div><a className={styles.btn3} href="http://8.134.32.42:20000/mirror-repository">立即使用</a></div>
-            <div><a className={styles.btn4} href="/informationFilling">了解更多</a></div>
+            <div><a className={styles.btn4} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
 
@@ -151,7 +151,7 @@ const Index = () => {
               <div><a href="http://8.134.32.42:20000/mirror-repository">立即使用  →</a></div>
               {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
             </div>
-            <div><a className={styles.btn2} href="/informationFilling">了解更多</a></div>
+            <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
         </div >
 

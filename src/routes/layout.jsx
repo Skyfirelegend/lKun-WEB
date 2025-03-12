@@ -13,9 +13,6 @@ export default function GLayout() {
     return ['/login', '/registry'].includes(location.pathname);
   }
 
-  // useEffect(() => {
-  //   document.title = '主页';
-  // }, []);
 
   return (
     <ConfigProvider

@@ -63,10 +63,18 @@ const CPOFooter = () => {
             <Flex vertical style={{ width: "300px" }}>
               <Flex justify="space-between">
                 <img
-                  style={{ width: "99px", marginBottom: "35px", marginTop: '15px' }}
+                  style={{ width: "99px", marginBottom: "35px", marginTop: '15px', cursor: 'pointer' }}
                   aria-labelledby="logo"
                   src={langke}
+                  onClick={() => { window.open('https://www.netac.com.cn/', '_blank') }}
                 />
+                {/* <a href="https://www.netac.com.cn" target="_blank" style={{ marginBottom: "1.9vw", marginTop: '15px' }}>
+                  <img
+                    style={{ width: "99px" }}
+                    aria-labelledby="logo"
+                    src={langke}
+                  />
+                </a> */}
               </Flex>
 
               <Text style={{ color: "rgba(51, 51, 51, 0.6)", fontSize: "12px" }}>
@@ -97,10 +105,18 @@ const CPOFooter = () => {
             />
             <Flex vertical style={{ width: "300px" }}>
               <Flex justify="space-between">
+                {/* <a href="/" style={{ marginBottom: "2vw", marginTop: '15px' }}>
+                  <img
+                    style={{ width: "103px" }}
+                    aria-labelledby="logo"
+                    src={lk}
+                  />
+                </a> */}
                 <img
-                  style={{ width: "103px", marginBottom: "38px", marginTop: '15px' }}
+                  style={{ width: "103px", marginBottom: "38px", marginTop: '15px', cursor: 'pointer' }}
                   aria-labelledby="logo"
                   src={lk}
+                  onClick={() => { window.open('/', '_self') }}
                 />
               </Flex>
 

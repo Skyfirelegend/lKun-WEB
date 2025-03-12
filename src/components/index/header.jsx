@@ -3,14 +3,21 @@ import { Button, Flex, Input, Typography, Menu, Space } from 'antd';
 import { Link } from '@modern-js/runtime/router';
 
 const { Text, } = Typography;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../static/logo.png';
 
 import styles from "./index.module.less";
 
 const pathname = window.location.pathname
+
+
+
 const CPOHeader = () => {
   // const [current, setCurrent] = useState('index');
+
+  const params = new URLSearchParams(window.location.search);
+  const getkey = params.get("gotopage");
+
   const items = [
     {
       label: (
@@ -106,37 +113,111 @@ const CPOHeader = () => {
     },
   ]
 
+  const nametokey = {
+    '/': 'index',
+    '/products/server': 'server',
+    '/products/dispatch': 'dispatch',
+    '/products/model': 'model',
+    '/products/cloud': 'cloud',
+    '/example': 'example',
+    '/document': 'document',
+    '/about/Introduce': 'introduce',
+    '/about/ContactUs': 'contactUs',
+    '/informationFilling': 'info',
+  }
+
+  const itemList = ['index', 'products', 'server', 'dispatch', 'model', 'cloud', 'example', 'document', 'about', 'introduce', 'contactUs']
+
+  const [selectedKey, setSelectedKey] = useState('index');
+
+
+  const handleClick = (e) => {
+    setSelectedKey(e.key);
+  };
+
+  const imgClick = () => {
+    setSelectedKey('index');
+  };
+
+
+
+  useEffect(() => {
+    // console.log(pathname)
+    const savedKey = localStorage.getItem('selectedMenuKey');
+    localStorage.removeItem('selectedMenuKey');
+    if (savedKey) {
+      if (savedKey === nametokey[pathname]) {
+        setSelectedKey(savedKey);
+      }
+      else {
+        setSelectedKey(nametokey[pathname]);
+      }
+      // setSelectedKey(savedKey);
+    }
+    if (itemList.includes(getkey)) {
+      setSelectedKey(getkey)
+    }
+    if (getkey === "info") {
+      setSelectedKey("info")
+    }
+    // console.log(getkey)
+
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('selectedMenuKey', selectedKey);
+  }, [selectedKey]); // 依赖selectedKey，所以每次selectedKey变化时都会执行这个effect
+
+
   return (
     <Flex
       style={{ width: '100%', height: '100%' }}
+      // style={{ width: '100%', height: '100%' }}
       justify="space-between"
       align="center"
       className='animate__animated animate__fadeIn'
     >
       <Flex style={{ width: '100%', height: '100%' }} gap="large" justify="space-between" align="center">
-        <img style={{ height: '18px' }} aria-labelledby="logo" src={logo} />
-        <Menu style={{ width: '100%', height: '100%' }} mode="horizontal" items={items} />
+        {/* <img style={{ height: '18px' }} aria-labelledby="logo" src={logo} /> */}
+        <a onClick={imgClick} style={{ display: 'flex', alignItems: 'center' }} href="/"><img style={{ height: '1.167vw' }} aria-labelledby="logo" src={logo} /></a>
+        {/* <img style={{ height: '1.167vw' }} aria-labelledby="logo" src={logo} /> */}
+
+
+        {/* <Menu onClick={handleClick} style={{ width: '100%', height: '100%' }} mode="horizontal" items={items} /> */}
+
+        <Menu onClick={handleClick} style={{ width: '100%', height: '100%' }} mode="horizontal" items={items} selectedKeys={[selectedKey]} />
       </Flex>
 
       <Flex justify="center" align="center" style={{ height: '100%' }}>
         <Input
-          style={{ width: '350px' }}
+          style={{ width: '22.8vw' }}
+          // style={{ width: '350px' }}
           size="large"
           placeholder="搜索"
+          // placeholder={pathname}
+          // placeholder={window.location.pathname}
           suffix={<SearchOutlined />}
         />
         <Flex
           justify="center"
           align="center"
           style={{
+            // width: '6.5vw',
+            // width: '22%',
             width: 100,
-            height: '100%',
+            // height: '100%',
           }}
         >
           {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/login">
             登录
           </Button> */}
-          <Button color="default" variant="link" href="/login">
+          <Button color="default" variant="link" href="http://8.134.32.42:20000/login" //href="/login"
+            style={{
+              // fontSize: '14px',
+              fontSize: '100%',
+              // fontSize: '0.93vw',
+            }}
+          >
             登录
           </Button>
         </Flex>
@@ -145,16 +226,18 @@ const CPOHeader = () => {
           align="center"
           style={{
             width: 100,
+            // width: '6.5vw',
+            // width: '22%',
             height: '100%',
             background: 'rgba(15, 98, 240, 1)',
           }}
         >
-          {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/register">
-            <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
-          </Button> */}
-          <Button color="default" variant="link" href="/registry">
+          <Button color="default" variant="link" href="http://8.134.32.42:20000/register">
             <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
           </Button>
+          {/* <Button color="default" variant="link" href="/registry">
+            <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
+          </Button> */}
         </Flex>
       </Flex>
     </Flex>

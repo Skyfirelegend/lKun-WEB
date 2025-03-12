@@ -23,7 +23,8 @@ const CPOTechnicalArchitecture = () => {
               fontSize: "24px",
               paddingTop: "50px"
             }}>宣传视频</Text>
-            <video width="1080px" controls preload="metadata" crossOrigin="anonymous" src={shipin} type="video/mp4">
+            {/* <video width="1080px" controls preload="metadata" crossOrigin="anonymous" src={shipin} type="video/mp4"> */}
+            <video width="1000vw" controls preload="metadata" crossOrigin="anonymous" src={shipin} type="video/mp4">
             </video>
           </Flex>
 

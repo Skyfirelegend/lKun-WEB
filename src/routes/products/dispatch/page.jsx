@@ -41,7 +41,7 @@ const Index = () => {
             <img style={{ width: '100%', height: 'auto', objectFit: 'contain', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={computeBanner} alt="" />
             {/* <img style={{ width: '20%', left: '5%', transform: 'translate(0%,-140%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
             <div><a className={styles.btn1} href="http://8.134.32.42:20000/overview">立即使用</a></div>
-            <div><a className={styles.btn2} href="/informationFilling">了解更多</a></div>
+            <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
 
@@ -119,7 +119,10 @@ const Index = () => {
             }
             {
               cView === 1 &&
-              <img src={frameworkPic} alt="" />
+              // <div className={styles2.frameworkPic}>
+
+              // </div>
+              <img style={{ height: '50vw' }} src={frameworkPic} alt="" />
             }
 
           </div>
@@ -130,7 +133,7 @@ const Index = () => {
               <div><a href="http://8.134.32.42:20000/overview">立即使用  →</a></div>
               {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
             </div>
-            <div><a className={styles.btn2} href="/informationFilling">了解更多</a></div>
+            <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
 

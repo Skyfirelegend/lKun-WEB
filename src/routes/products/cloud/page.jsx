@@ -37,7 +37,7 @@ const Index = () => {
         <div className={styles.compute}>
           <div className={styles.banner}>
             <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={cloudBanner} alt="" />
-            <div><a className={styles.btn5} href="/informationFilling">了解更多</a></div>
+            <div><a className={styles.btn5} href="/informationFilling?gotopage=info">了解更多</a></div>
             {/* <img style={{ width: '20%', left: '5%', transform: 'translate(-25%,-115%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
           </div>
 
@@ -79,7 +79,7 @@ const Index = () => {
 
           <div className={styles.cloudWrapper}>
             <div className={styles.btn}>
-              <div><a href="/informationFilling">了解更多</a></div>
+              <div><a href="/informationFilling?gotopage=info">了解更多</a></div>
             </div>
           </div>
 

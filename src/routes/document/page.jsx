@@ -1,63 +1,187 @@
-import { ConfigProvider, Layout } from 'antd';
+import { ConfigProvider, Layout, Menu } from 'antd';
 import { Flex } from 'antd';
-import React, { useEffect } from 'react';
-import lingang from './img/lingang.png';
-import shenzhenUniversity from './img/shenzhen-university.png';
-import zhongan from './img/zhongan.png'
+import React, { useEffect, useState, useRef } from 'react';
 import banner from './img/banner.png'
 import styles from './index.module.less'
 import FadeInContainer from '../../components/common'
+import { Link, Outlet } from '@modern-js/runtime/router';
 
-const data = [
+const { Sider, Content } = Layout
+
+const items = [
   {
-    img: zhongan,
-    title: '中安颉数字科技（深圳）有限公司',
-    desc: '通过「裸金属服务器」朗坤曦云C550智算服务器，中安颉数字科技(深圳)有限公司成功为一家大型跨国医药企业客户研发出了医疗数据分析与可视化工具，显著提升了规模化医疗数据处理速度与精度，有效赋能分析人员进行生物统计。'
+    label: (
+      <Link prefetch="render" to="/">
+        首页
+      </Link>
+    ),
+    key: 'index',
   },
   {
-    img: shenzhenUniversity,
-    title: '深圳大学',
-    desc: '通过「裸金属服务器」超微7049GP工作站，深圳大学“大学生创新创业大赛”参赛学生成功实现元宇宙渲染，在虚拟现实、增强现实和混合现实环境中创建了逼真的图像，完成了三维建模、纹理映射、光照处理、物理仿真等。'
-  },
+    label: '产品与服务',
+    key: 'products',
+    children: [
+      {
+        label: (
+          <Link prefetch="render" to="/document/buyguide/calculate">
+            {/* <div> */}
+            弹性AI算力资源
+            {/* </div> */}
 
+          </Link>
+        ),
+        key: 'server',
+      },
+      {
+        label: (
+          <Link prefetch="render" to="/products/dispatch">
+            算力调度平台
+          </Link>
+        ),
+        key: 'dispatch',
+      },
+      {
+        label: (
+          <Link prefetch="render" to="/products/model">
+            模型训练与推理
+          </Link>
+        ),
+        key: 'model',
+      },
+      {
+        label: (
+          <Link prefetch="render" to="/products/cloud">
+            专属定制云
+          </Link>
+        ),
+        key: 'cloud',
+      },
+    ]
+  },
+  {
+    label: (
+      <Link prefetch="render" to="/example">
+        客户案例
+      </Link>
+    ),
+    key: 'example',
+  },
+  {
+    label: (
+      <Link prefetch="render" to="/document">
+        产品文档
+      </Link>
+    ),
+    key: 'document',
+  },
+  {
+    label: '关于我们',
+    key: 'about',
+    children: [
+      {
+        label: (
+          <Link prefetch="render" to="/about/Introduce">
+            公司介绍
+          </Link>
+        ),
+        key: 'introduce',
+      },
+      // {
+      //   label: (
+      //     <Link prefetch="render" to="/about/ServiceConter">
+      //       客服中心
+      //     </Link>
+      //   ),
+      //   key: 'serviceConter',
+      // },
+      {
+        label: (
+          <Link prefetch="render" to="/about/ContactUs">
+            联系我们
+          </Link>
+        ),
+        key: 'contactUs',
+      },
+    ]
+  },
 ]
+
+
+
 const Index = () => {
 
   useEffect(() => {
     document.title = '产品文档';
     window.scrollTo(0, 0);
+
   }, []);
 
+  const [width, setWidth] = useState(200);
+  const dragStateRef = useRef({
+    dragging: false,
+    startX: 0,
+    startWidth: 200
+  });
+
+  const handleMouseDown = (e) => {
+    dragStateRef.current = {
+      dragging: true,
+      startX: e.clientX,
+      startWidth: width
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    e.preventDefault(); // 防止文本选中
+  };
+
+  const handleMouseMove = (e) => {
+    if (!dragStateRef.current.dragging) return;
+
+    const delta = e.clientX - dragStateRef.current.startX;
+    const newWidth = Math.max(150, Math.min(400, dragStateRef.current.startWidth + delta));
+
+    setWidth(newWidth);
+  };
+
+  const handleMouseUp = () => {
+    dragStateRef.current.dragging = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+
+
   return (
-    <div>
-      待添加内容
-    </div>
-    // < FadeInContainer children={
-    //   < div className={styles.example} >
-    //     <div className={styles.banner}>
-    //       <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={banner} alt="" />
-    //       {/* <div className={styles.title}>客户案例</div>
-    //       <div className={styles.subTitle}>赋能高校客户科学研究，助力企业客户数字转型，支持算力</div>
-    //       <div className={styles.subTitle}>集群客户算力调度。</div> */}
-    //     </div>
-    //     {
-    //       data.map(item => {
-    //         return (
-    //           <div className={styles.items} key={item.title}>
-    //             <img src={item.img} alt="" />
-    //             <div className={styles.text}>
-    //               <div className={styles.title}>{item.title}</div>
-    //               <div className={styles.desc}>{item.desc}</div>
-    //             </div>
-    //           </div>
-    //         )
-    //       })
-    //     }
-    //   </div >
-    // } />
+    <FadeInContainer children={
+
+      <Layout>
+        <Sider className={styles.draggableSidebar} ref={dragStateRef} width={width}>
+          <div className={styles.draggableHandle} onMouseDown={handleMouseDown}></div>
+          <Menu mode='inline' style={{ background: "#FAFAFA" }} items={items} />
+        </Sider>
+        <Content>
+          正文
+          {/* <Outlet></Outlet> */}
+        </Content>
+      </Layout>
+
+
+
+      // <Flex>
+      //   {/* <Menu
+      //     style={{ width: '15%', background: '#FAFAFA' }}
+      //     items={items}
+      //   />
+      //   5151515 */}
+      //   <div className={styles.draggableSidebar} ref={dragStateRef} style={{ width: `${width}px` }}>
+      //     <div className={styles.draggableHandle} onMouseDown={handleMouseDown}></div>
+      //     <Menu mode='inline' style={{ background: "#FAFAFA" }} items={items} />
+      //   </div>
+      //   {/* 正文 */}
+      // </Flex>
+    } />
   );
 };
-
 
 
 

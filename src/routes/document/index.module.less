@@ -1,60 +1,22 @@
-.example {
-  .banner {
-    // padding: 50px 0 111px 60px;
-    // background-image: url('./img/banner.png');
-    // background-size: 100% 100%;
-    img{
-      display: block;
-      width: 100%;
-    }
+.draggableSidebar {
+  position: relative; /* 或 absolute，根据需要 */
+  top: 0;
+  left: 0;
+  height: 100%; /* 根据需要调整 */
+  background-color: #fff; /* 背景颜色 */
+  overflow: auto; /* 如果内容过多，显示滚动条 */
+  user-select: none; /* 防止文本被选中 */
 
-    .title {
-      color: #222;
-      font-size: 30px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 50px;
-    }
 
-    .subTitle {
-      color: rgba(51, 51, 51, .8);;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-  }
-
-  .items {
-    display: flex;
-    align-items: center;
-    padding: 51px 78px 60px 30px;
-    &:hover{
-      background-color: #F7FAFF;
-    }
-    img {
-      display: block;
-      width: 308px;
-      margin-right: 40px;
-    }
-
-    .title {
-      color: #333;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 28px;
-      /* 140% */
-      margin-bottom: 13px;
-    }
-  }
-
-  .desc {
-    color: #333;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-    /* 166.667% */
+  .draggableHandle {
+    position: absolute; /* 使这个元素相对于父元素定位 */
+    // position: relative; /* 使这个元素相对于父元素定位 */
+    top: 0; /* 定位在顶部 */
+    right: 0; /* 定位在右侧 */
+    width: 10px; /* 拖动把手的宽度 */
+    height: 100%; /* 与父元素同高 */
+    cursor: col-resize; /* 鼠标指针变为可拖动图标 */
   }
 }
+
+
