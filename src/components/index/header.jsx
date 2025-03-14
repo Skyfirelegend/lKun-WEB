@@ -3,7 +3,7 @@ import { Button, Flex, Input, Typography, Menu, Space } from 'antd';
 import { Link } from '@modern-js/runtime/router';
 
 const { Text, } = Typography;
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logo from '../../static/logo.png';
 
 import styles from "./index.module.less";
@@ -17,6 +17,9 @@ const CPOHeader = () => {
 
   const params = new URLSearchParams(window.location.search);
   const getkey = params.get("gotopage");
+
+  // const locationRef = useRef(location)
+  // locationRef.current = location
 
   const items = [
     {
@@ -140,9 +143,13 @@ const CPOHeader = () => {
   };
 
 
-
   useEffect(() => {
     // console.log(pathname)
+    // console.log(location.pathname)
+    // console.log(locationRef.current.pathname)
+    window.onpopstate = function (e: PopStateEvent) {
+      setSelectedKey(nametokey[location.pathname]);
+    };
     const savedKey = localStorage.getItem('selectedMenuKey');
     localStorage.removeItem('selectedMenuKey');
     if (savedKey) {
@@ -152,7 +159,6 @@ const CPOHeader = () => {
       else {
         setSelectedKey(nametokey[pathname]);
       }
-      // setSelectedKey(savedKey);
     }
     if (itemList.includes(getkey)) {
       setSelectedKey(getkey)
@@ -161,7 +167,9 @@ const CPOHeader = () => {
       setSelectedKey("info")
     }
     // console.log(getkey)
-
+    return (() => {
+      window.onpopstate = null;
+    })
   }, [])
 
   useEffect(() => {

@@ -26,7 +26,7 @@ const Index = () => {
     <Flex vertical>
       <CPOCarousel key="key1" />
 
-      {/* <CPOServerCard key="key5" /> */}
+      <CPOServerCard key="key5" />
 
       <CPOAdvantage key="key2" />
       <CPOTechnicalArchitecture key="key3" />

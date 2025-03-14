@@ -101,7 +101,7 @@ const Introduce = () => {
                 <div className={styles.bannerTwo}>
                   <img style={{ width: '100%', aspectRatio: 'auto 2160/630' }} src={introducePic3_1} alt="" />
                 </div>
-                <div style={{ transform: 'translateY(-4vw)' }}>
+                <div style={{ transform: 'translateY(-5vw)' }}>
                   <div className={styles.text}>2024年，朗科科技与深圳大学开展校企合作，成立“深圳大学-朗科科技算力调度与提升联合实验室”。实验室一方面致力于算力监测、调度、交易平台建设，平台将重点汇聚通用算力、智能算力、高性能算力等多元算力资源，构建异构资源池调度引擎，实现跨资源池、跨架构、跨厂商的异构算力资源调度能力；另一方面，致力于在算力相关技术理论与方法探究，聚焦智能调度与算力优化、“架构-电路-集成-算法”协同一体化创新的算力提升、算力体系架构理论与方法等研究方向，突破相关的基础理论、方法和关键技术。</div>
                 </div>
                 <div className={styles.bannerThree_2}>

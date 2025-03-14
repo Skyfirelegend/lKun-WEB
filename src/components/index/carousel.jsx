@@ -19,10 +19,11 @@ const CPOCarousel = () => {
       <img style={{ width: '100%', height: 'auto', aspectRatio: 'auto 2160/840' }} aria-labelledby="banner" src={banner2} />
       <img style={{ width: '100%', height: 'auto', aspectRatio: 'auto 2160/840' }} aria-labelledby="banner" src={banner3} />
 
-      <div className={styles.banner}>
+
+      {/* <div className={styles.banner}>
         <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={banner4} alt="" />
         <div><a className={styles.btn1} href="http://8.134.32.42:20000/cloud">立即体验</a></div>
-      </div>
+      </div> */}
 
     </Carousel>
   );

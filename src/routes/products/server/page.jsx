@@ -33,10 +33,10 @@ const serverData = [
         type: "16*64G",
       },
     ],
-    // price: "0.18",
-    // costPrice: "0.36"
     price: "10.42",
-    costPrice: "20.84"
+    costPrice: "20.84",
+    price2: "7499",
+    costPrice2: "14998"
   },
   {
     name: ["超微7049GP工作站"],
@@ -55,7 +55,9 @@ const serverData = [
       },
     ],
     price: "0.18",
-    costPrice: "0.36"
+    costPrice: "0.36",
+    price2: "199",
+    costPrice2: "398"
   },
   {
     name: ["PR4904智算服务器"],
@@ -74,7 +76,9 @@ const serverData = [
       },
     ],
     price: "2.64",
-    costPrice: "5.28"
+    costPrice: "5.28",
+    price2: "1899",
+    costPrice2: "3798"
   },
   {
     name: ["PR4910智算服务器"],
@@ -93,16 +97,18 @@ const serverData = [
       },
     ],
     price: "27.8",
-    costPrice: "55.6"
+    costPrice: "55.6",
+    price2: "19999",
+    costPrice2: "39998"
   },
 ];
 const Index = () => {
-  const [showClick1, setClick1] = useState(false);
-  const [showClick2, setClick2] = useState(0);
+  const [showClick1, setClick1] = useState(true);
+  const [showClick2, setClick2] = useState(1);
 
   useEffect(() => {
     document.title = '弹性AI算力资源';
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -185,17 +191,52 @@ const Index = () => {
                     <div className={styles.price}>
                       {/* <div className={styles.label}>价格<span style={{ fontStyle: 'italic', fontWeight: '700', fontSize: '28px', color: 'rgba(255, 120, 0, 1)' }}> 低至5折！</span></div> */}
                       {/* <div className={styles.value}>￥<span style={{ fontSize: '28px', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>{item.price}</span><Text delete>{item.costPrice}</Text>/时</div> */}
-                      <div className={styles.value}>
-                        ￥
-                        <span style={{ fontSize: '1.82vw', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>
-                          {item.price}
-                        </span>
-                        <Text delete style={{ fontSize: '0.9vw' }}>
-                          {/* <Text delete> */}
-                          {item.costPrice}
-                        </Text>
-                        /时
-                      </div>
+
+                      {
+                        showClick2 === 1 &&
+                        <div className={styles.value}>
+                          ￥
+                          <span style={{ fontSize: '1.82vw', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>
+                            {item.price}
+                          </span>
+                          <Text delete style={{ fontSize: '0.9vw' }}>
+                            {/* <Text delete> */}
+                            {item.costPrice}
+                          </Text>
+                          /时
+                        </div>
+                      }
+
+                      {
+                        showClick2 === 2 &&
+                        <div>
+                          <div className={styles.value} style={{ transform: 'translate(-80%,-100%)' }}>
+                            ￥
+                            <span style={{ fontSize: '1.82vw', color: 'rgba(255, 120, 0, 1)', fontWeight: '600' }}>
+                              {item.price2}
+                            </span>
+                            <Text delete style={{ fontSize: '0.9vw' }}>
+                              {/* <Text delete> */}
+                              {item.costPrice2}
+                            </Text>
+                            /月
+                          </div>
+                          <Select
+                            defaultValue={"1"}
+                            // popupClassName={styles.select}
+                            style={{ width: '6vw', transform: 'translate(-88%,80%)', position: 'absolute' }}
+                            // variant="borderless"
+                            options={[
+                              { value: "1", label: "1个月" },
+                              { value: "3", label: "3个月" },
+                              { value: "6", label: "6个月" },
+                              { value: "12", label: "12个月" },
+                            ]}
+                          // activeBorderColor='#333'
+                          />
+                        </div>
+
+                      }
                       <div className={styles.buyBtn}><a href="http://8.134.32.42:20000/cloud">立即购买</a></div>
                     </div>
                   </div>
@@ -203,16 +244,7 @@ const Index = () => {
                   {/* <div className={styles.buyTime}>
                     <div className={styles.label}>购买时间</div>
                     <div className={styles.value}>
-                      <Select
-                        defaultValue={"1"}
-                        style={{ width: 90 }}
-                        variant="borderless"
-                        options={[
-                          { value: "1", label: "1个月", color: "" },
-                          { value: "6", label: "6个月" },
-                          { value: "12", label: "12个月" },
-                        ]}
-                      />
+
                     </div>
                   </div> */}
                   {/* <div className={styles.buyBtn}><a href="http://8.134.32.42:20000/cloud">立即购买</a></div> */}

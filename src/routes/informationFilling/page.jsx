@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 
 import { UseDispatch, useDispatch } from 'react-redux';
 
+
+
 const InformationFilling = () => {
   const [showTip, setShowTip] = useState(false)
 
@@ -64,7 +66,11 @@ const InformationFilling = () => {
                 {
                   pattern: /^1[3-9]\d{9}$/,
                   message: '请输入正确的手机号格式！'
-                }
+                },
+                // {
+                //   pattern: /^ (0\d{2, 3}[- ]?)?\d{7, 8}([-#]\d{1, 6})?$/,
+                //   message: '请输入正确的固话格式！'
+                // }
               ]}
             >
               <Input placeholder='请输入您的电话' className={styles.myInput} />
