@@ -88,6 +88,7 @@ const serverData = [
     costPrice: 39998
   },
 ];
+
 const Index = () => {
   const key = window.location.search.split('=')[1] || '1'
   const [activite, setActivite] = useState(key);
