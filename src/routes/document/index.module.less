@@ -1,12 +1,53 @@
+.itemicon{
+  position: absolute;
+  left: 38px;
+  top: 0;
+  bottom: 0;
+  width: 2px !important;
+  background-color:#1565ef;
+}
+
 .draggableSidebar {
-  position: relative; /* 或 absolute，根据需要 */
+  // position: relative; /* 或 absolute，根据需要 */
+
   top: 0;
   left: 0;
-  height: 100%; /* 根据需要调整 */
-  background-color: #fff; /* 背景颜色 */
+
+
+  bottom: 0;
+  position: sticky;
+  // position: fixed;
+  z-index: 0;
+  inset-inline-start: 0;
+  // scroll-bar-width: thin;
+  // scroll-bar-gutter: stable;
+
+  // height: 100%; /* 根据需要调整 */
+  // height: 100vh;
+  height: 35vw; /* 根据需要调整 */
+  background-color: rgba(234, 239, 247, 0.64); /* 背景颜色 */
   overflow: auto; /* 如果内容过多，显示滚动条 */
   user-select: none; /* 防止文本被选中 */
 
+  .firstitem{
+    position: absolute;
+    font-size: 1.4vw;
+    font-weight: 600;
+    color: #333333;
+    &:hover{
+      color: #333333;
+    }
+    align-items: center;
+    // height: 100vw;
+    // padding: 51px 0 111px 60px;
+    transform: translate(1.8vw,1.2vw);
+    width: 70%;
+    z-index: 1;
+    // top: 0;
+    // position: sticky;
+    // z-index: 1;
+    // background-color: rgba(234, 239, 247);
+  }
 
   .draggableHandle {
     position: absolute; /* 使这个元素相对于父元素定位 */
@@ -17,6 +58,23 @@
     height: 100%; /* 与父元素同高 */
     cursor: col-resize; /* 鼠标指针变为可拖动图标 */
   }
+}
+
+.icon{
+  position: absolute;
+  // width: 10px;
+  // height: 10px;
+  // left: 168px;
+  // top: 82px;
+
+  // background: #C0C2C4;
+  // transform: matrix(1, 0, 0, -1, 0, 0);
+
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid #C0C2C4;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+
 }
 
 

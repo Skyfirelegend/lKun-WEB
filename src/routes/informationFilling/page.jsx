@@ -2,12 +2,20 @@ import { useState } from 'react'
 import { Modal, Form, Input, Button } from 'antd'
 import styles from './index.module.less';
 import modalHeadBg from '../products/img/modalHeadBg.png'
-import { Tips } from '../login/page'
+// import { Tips } from '../login/page'
 import { useEffect } from 'react';
-
 import { UseDispatch, useDispatch } from 'react-redux';
+import successIcon from "./img/success.png";
 
 
+export const Tips = ({ text }) => {
+  return (
+    <div className={styles.tip}>
+      <img src={successIcon} alt="" />
+      <div className={styles.text}>{text}</div>
+    </div>
+  );
+};
 
 const InformationFilling = () => {
   const [showTip, setShowTip] = useState(false)

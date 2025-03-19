@@ -10,9 +10,12 @@ const { Header, Content, Footer } = Layout;
 
 export default function GLayout() {
   const dealShowPage = () => {
-    return ['/login', '/registry'].includes(location.pathname);
+    return ['/document'].includes(location.pathname);
   }
 
+  // useEffect(() => {
+  //   console.log(['/document'].includes(location.pathname))
+  // }, [])
 
   return (
     <ConfigProvider
@@ -37,8 +40,10 @@ export default function GLayout() {
             headerSplitColor: 'rgba(255, 255, 255, 0)',
           },
           Select: {
-            optionActiveBg: '#ffffff',
-            optionSelectedBg: '#ffffff',
+            // optionActiveBg: '#ffffff',
+            // optionSelectedBg: '#ffffff',
+            optionHeight: '1.2vw',
+            optionFontSize: '0.93vw',
             optionSelectedColor: 'rgba(15, 98, 240, 1)'
           }
         },
@@ -63,9 +68,12 @@ export default function GLayout() {
 
             <Outlet />
           </Content>
-          {!dealShowPage() && <Footer>
+          {/* {!dealShowPage() && <Footer>
             <CPOFooter />
-          </Footer>}
+          </Footer>} */}
+          <Footer>
+            <CPOFooter />
+          </Footer>
         </Flex>
       </Layout>
     </ConfigProvider >

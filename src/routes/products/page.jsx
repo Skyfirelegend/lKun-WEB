@@ -4,7 +4,7 @@ import { Tips } from '../login/page'
 import chip from "./img/chip.png";
 import doc from "./img/doc.png";
 import settingIcon from "./img/settingIcon.png";
-import frameworkPic from "./img/frameworkPic.png";
+import frameworkPic from "./img/frameworkPic.svg";
 import computeBanner from './img/computeBanner.png';
 import serveBanner from './img/serveBanner.png'
 import styles from "./index.module.less";

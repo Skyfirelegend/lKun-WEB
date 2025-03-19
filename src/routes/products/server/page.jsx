@@ -150,7 +150,7 @@ const Index = () => {
               <div className={styles2.Text1}>
                 包年包月计费更优惠，适合中长期稳定的IT需求。
               </div>
-              <a className={styles2.cusmDesc} href="/document?gotopage=document" target="_blank">
+              <a className={styles2.cusmDesc} href="/document?gotopage=document&nowpage=Cost" target="_blank">
                 <div className={styles2.Text2}>
                   计费说明
                 </div>
@@ -221,19 +221,32 @@ const Index = () => {
                             </Text>
                             /月
                           </div>
-                          <Select
-                            defaultValue={"1"}
-                            // popupClassName={styles.select}
-                            style={{ width: '6vw', transform: 'translate(-88%,80%)', position: 'absolute' }}
-                            // variant="borderless"
-                            options={[
-                              { value: "1", label: "1个月" },
-                              { value: "3", label: "3个月" },
-                              { value: "6", label: "6个月" },
-                              { value: "12", label: "12个月" },
-                            ]}
-                          // activeBorderColor='#333'
-                          />
+
+                          <div
+                            style={{ transform: 'translate(-65%,-0.2vw)', position: 'absolute', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                            <span
+                              style={{ fontSize: '0.93vw', width: '100%', }}
+                            >
+                              购买时长
+                            </span>
+                            <Select
+                              defaultValue={"1"}
+                              // popupClassName={styles.select}
+                              style={{ width: '100%', height: '2vw' }}
+                              variant="borderless"
+                              // variant="underlined"
+                              options={[
+                                { value: "1", label: <span style={{ fontSize: '0.93vw' }}>1个月</span> },
+                                { value: "3", label: <span style={{ fontSize: '0.93vw' }}>3个月</span> },
+                                { value: "6", label: <span style={{ fontSize: '0.93vw' }}>6个月</span> },
+                                { value: "12", label: <span style={{ fontSize: '0.93vw' }}>12个月</span> },
+                              ]}
+                              dropdownStyle={{
+                                width: '7vw',
+                              }}
+                            />
+                          </div>
+
                         </div>
 
                       }

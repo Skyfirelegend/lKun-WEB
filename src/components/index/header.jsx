@@ -78,9 +78,12 @@ const CPOHeader = () => {
     },
     {
       label: (
-        <Link prefetch="render" to="/document">
+        <a href='http://8.134.32.42:20000/doc'>
           产品文档
-        </Link>
+        </a>
+        // <Link prefetch="render" to="/document">
+        //   产品文档
+        // </Link>
       ),
       key: 'document',
     },
@@ -219,7 +222,7 @@ const CPOHeader = () => {
           {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/login">
             登录
           </Button> */}
-          <Button color="default" variant="link" href="http://8.134.32.42:20000/login" //href="/login"
+          <Button color="default" variant="link" href="http://47.115.73.132:20000/login" //href="http://8.134.32.42:20000/login"
             style={{
               // fontSize: '14px',
               fontSize: '100%',
@@ -240,7 +243,8 @@ const CPOHeader = () => {
             background: 'rgba(15, 98, 240, 1)',
           }}
         >
-          <Button color="default" variant="link" href="http://8.134.32.42:20000/register">
+          <Button color="default" variant="link" href="http://47.115.73.132:20000/register" //href="http://8.134.32.42:20000/register"
+          >
             <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
           </Button>
           {/* <Button color="default" variant="link" href="/registry">
@@ -248,7 +252,7 @@ const CPOHeader = () => {
           </Button> */}
         </Flex>
       </Flex>
-    </Flex>
+    </Flex >
   );
 };
 
