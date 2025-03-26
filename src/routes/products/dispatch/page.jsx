@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
-import { Tips } from '../../login/page'
 import chip from "../img/chip.png";
 import doc from "../img/doc.png";
 import settingIcon from "../img/settingIcon.png";
@@ -14,8 +13,6 @@ import FadeInContainer from '../../../components/common'
 
 import styles2 from "./index.module.less";
 
-import BanBtn from './img/BanBtn.svg';
-
 import cardBg1 from './img/cardbg1.svg';
 import cardBg2 from './img/cardbg2.svg';
 import cardBg3 from './img/cardbg3.svg';
@@ -23,13 +20,15 @@ import cardBg4 from './img/cardbg4.svg';
 import cardBg5 from './img/cardbg5.svg';
 import cardBg6 from './img/cardbg6.svg';
 
+import { cpo_address } from "../../../utils/address";
+
 
 const Index = () => {
   const [showTip, setShowTip] = useState(false);
   const [cView, setCView] = useState(0);
 
   useEffect(() => {
-    document.title = '算力调度平台';
+    document.title = '算力调度平台-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 
@@ -39,8 +38,7 @@ const Index = () => {
         <div className={styles.compute}>
           <div className={styles.banner}>
             <img style={{ width: '100%', height: 'auto', objectFit: 'contain', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={computeBanner} alt="" />
-            {/* <img style={{ width: '20%', left: '5%', transform: 'translate(0%,-140%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
-            <div><a className={styles.btn1} href="http://8.134.32.42:20000/overview">立即使用</a></div>
+            <div><a className={styles.btn1} href={`${cpo_address}/overview`}>立即使用</a></div>
             <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
@@ -130,8 +128,7 @@ const Index = () => {
 
           <div className={styles.consultWrapper}>
             <div className={styles.btn}>
-              <div><a href="http://8.134.32.42:20000/overview">立即使用  →</a></div>
-              {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
+              <div><a href={`${cpo_address}/overview`}>立即使用  →</a></div>
             </div>
             <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>

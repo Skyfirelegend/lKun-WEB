@@ -9,6 +9,8 @@ import servercardBg from "./img/serverBg.png"
 
 import Banner from "./img/banner.png"
 
+import { cpo_address } from "../../../utils/address";
+
 const { Text } = Typography;
 const serverData = [
     {
@@ -95,7 +97,7 @@ const CPOServerCard = () => {
         <FadeInContainer children={
             <div className={styles.banner}>
                 <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={Banner} alt="" />
-                <div><a className={styles.btn1} href="http://8.134.32.42:20000/cloud">立即体验</a></div>
+                <div><a className={styles.btn1} href={`${cpo_address}/models`}>立即体验</a></div>
             </div>
 
             // <div className={styles.serverWrapper}>

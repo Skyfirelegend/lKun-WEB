@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 
 const ContactUs = () => {
   useEffect(() => {
-    document.title = '联系我们';
+    document.title = '联系我们-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 

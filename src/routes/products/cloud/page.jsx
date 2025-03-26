@@ -27,7 +27,7 @@ const Index = () => {
   // const containerWidth = width * 0.1;
 
   useEffect(() => {
-    document.title = '专属定制云';
+    document.title = '专属定制云-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 
@@ -38,13 +38,7 @@ const Index = () => {
           <div className={styles.banner}>
             <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={cloudBanner} alt="" />
             <div><a className={styles.btn5} href="/informationFilling?gotopage=info">了解更多</a></div>
-            {/* <img style={{ width: '20%', left: '5%', transform: 'translate(-25%,-115%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
           </div>
-
-
-          {/* <div className={styles.frameworkTitle}>
-            技术架构图
-          </div> */}
 
 
           <div className={styles2.ClickBtn}>

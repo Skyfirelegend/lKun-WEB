@@ -22,7 +22,7 @@ const data = [
 ]
 const Index = () => {
   useEffect(() => {
-    document.title = '客户案例';
+    document.title = '客户案例-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 

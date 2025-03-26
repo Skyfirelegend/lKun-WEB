@@ -18,7 +18,7 @@ const Index = () => {
   const [showFooterModal, setShowFooterModal] = useState(true)
 
   useEffect(() => {
-    document.title = '主页';
+    document.title = '朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 

@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Typography, Menu, Space } from 'antd';
+import { SearchOutlined, FileUnknownOutlined } from '@ant-design/icons';
+import { Button, Flex, Input, Typography, Menu, Space, AutoComplete, Dropdown } from 'antd';
 import { Link } from '@modern-js/runtime/router';
 
 const { Text, } = Typography;
@@ -7,6 +7,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import logo from '../../static/logo.png';
 
 import styles from "./index.module.less";
+
+import { cpo_address } from "../../utils/address"
 
 const pathname = window.location.pathname
 
@@ -78,7 +80,7 @@ const CPOHeader = () => {
     },
     {
       label: (
-        <a href='http://8.134.32.42:20000/doc'>
+        <a href={`${cpo_address}/doc`}>
           产品文档
         </a>
         // <Link prefetch="render" to="/document">
@@ -99,14 +101,6 @@ const CPOHeader = () => {
           ),
           key: 'introduce',
         },
-        // {
-        //   label: (
-        //     <Link prefetch="render" to="/about/ServiceConter">
-        //       客服中心
-        //     </Link>
-        //   ),
-        //   key: 'serviceConter',
-        // },
         {
           label: (
             <Link prefetch="render" to="/about/ContactUs">
@@ -136,6 +130,20 @@ const CPOHeader = () => {
 
   const [selectedKey, setSelectedKey] = useState('index');
 
+  const page_list = ['首页', '弹性AI算力资源-产品与服务', '算力调度平台-产品与服务', '模型训练与推理-产品与服务', '专属定制云-产品与服务', '客户案例', '产品文档', '公司介绍-关于我们', '联系我们-关于我们', '信息收集']
+
+  const page_link = {
+    '首页': '/',
+    '弹性AI算力资源-产品与服务': '/products/server',
+    '算力调度平台-产品与服务': '/products/dispatch',
+    '模型训练与推理-产品与服务': '/products/model',
+    '专属定制云-产品与服务': '/products/cloud',
+    '客户案例': '/example',
+    '产品文档': `${cpo_address}/doc`,
+    '公司介绍-关于我们': '/about/Introduce',
+    '联系我们-关于我们': '/about/ContactUs',
+    '信息收集': '/informationFilling',
+  }
 
   const handleClick = (e) => {
     setSelectedKey(e.key);
@@ -169,7 +177,6 @@ const CPOHeader = () => {
     if (getkey === "info") {
       setSelectedKey("info")
     }
-    // console.log(getkey)
     return (() => {
       window.onpopstate = null;
     })
@@ -179,11 +186,57 @@ const CPOHeader = () => {
     localStorage.setItem('selectedMenuKey', selectedKey);
   }, [selectedKey]); // 依赖selectedKey，所以每次selectedKey变化时都会执行这个effect
 
+  const [options, setOptions] = useState([])
+
+
+  const searchOut = (values) => {
+    const regex = new RegExp(`(${values})`, 'u');
+    const searchArray = page_list.filter(item => regex.test(item));
+    // console.log(searchArray)
+
+    const searchResult = searchArray.map(item => {
+      let need_values = values
+      const escaped = need_values.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const split_item = item.split(new RegExp(`(${escaped})`)).filter(part => part != "")
+      // console.log(split_item)
+      return {
+        value: item,
+        label: (
+          <div className={styles.searchResult}
+            onClick={() => {
+              window.open(page_link[item], '_self')
+            }}
+          >
+            {
+              split_item.map(item2 => {
+                // console.log(values)
+                return (
+                  <div className={item2 === values ? styles.hightLight : styles.noneHightLight}>
+                    {item2}
+                  </div>
+                )
+              })
+            }
+          </div>
+        )
+      }
+    })
+
+    // console.log(searchResult)
+
+    return searchResult
+  }
+
+
+  const onChange = (value) => {
+    // console.log('onChange:', value);
+    setOptions(value ? searchOut(value) : []);
+    // console.log(options)
+  };
 
   return (
     <Flex
       style={{ width: '100%', height: '100%' }}
-      // style={{ width: '100%', height: '100%' }}
       justify="space-between"
       align="center"
       className='animate__animated animate__fadeIn'
@@ -191,7 +244,6 @@ const CPOHeader = () => {
       <Flex style={{ width: '100%', height: '100%' }} gap="large" justify="space-between" align="center">
         {/* <img style={{ height: '18px' }} aria-labelledby="logo" src={logo} /> */}
         <a onClick={imgClick} style={{ display: 'flex', alignItems: 'center' }} href="/"><img style={{ height: '1.167vw' }} aria-labelledby="logo" src={logo} /></a>
-        {/* <img style={{ height: '1.167vw' }} aria-labelledby="logo" src={logo} /> */}
 
 
         {/* <Menu onClick={handleClick} style={{ width: '100%', height: '100%' }} mode="horizontal" items={items} /> */}
@@ -200,15 +252,45 @@ const CPOHeader = () => {
       </Flex>
 
       <Flex justify="center" align="center" style={{ height: '100%' }}>
-        <Input
+
+        <AutoComplete
+          style={{
+            width: '22.8vw',
+          }}
+          options={options}
+          onChange={onChange}
+          popupClassName={styles.searchpopup}
+          notFoundContent={
+            <div
+              className={styles.noneStyle}
+            >
+              <FileUnknownOutlined
+                className={styles.img}
+              />
+              <div
+                className={styles.text}
+              >
+                搜索内容为空
+              </div>
+            </div>
+          }
+        >
+          <Input
+            style={{ width: '22.8vw' }}
+            // style={{ width: '350px' }}
+            size="large"
+            placeholder="搜索"
+            suffix={<SearchOutlined />}
+          />
+        </AutoComplete>
+
+        {/* <Input
           style={{ width: '22.8vw' }}
           // style={{ width: '350px' }}
           size="large"
           placeholder="搜索"
-          // placeholder={pathname}
-          // placeholder={window.location.pathname}
           suffix={<SearchOutlined />}
-        />
+        /> */}
         <Flex
           justify="center"
           align="center"
@@ -219,10 +301,8 @@ const CPOHeader = () => {
             // height: '100%',
           }}
         >
-          {/* <Button color="default" variant="link" href="http://8.134.32.42:20000/login">
-            登录
-          </Button> */}
-          <Button color="default" variant="link" href="http://47.115.73.132:20000/login" //href="http://8.134.32.42:20000/login"
+
+          <Button color="default" variant="link" href={`${cpo_address}/login`}
             style={{
               // fontSize: '14px',
               fontSize: '100%',
@@ -231,7 +311,9 @@ const CPOHeader = () => {
           >
             登录
           </Button>
+
         </Flex>
+
         <Flex
           justify="center"
           align="center"
@@ -243,13 +325,12 @@ const CPOHeader = () => {
             background: 'rgba(15, 98, 240, 1)',
           }}
         >
-          <Button color="default" variant="link" href="http://47.115.73.132:20000/register" //href="http://8.134.32.42:20000/register"
+
+          <Button color="default" variant="link" href={`${cpo_address}/register`}
           >
             <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
           </Button>
-          {/* <Button color="default" variant="link" href="/registry">
-            <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
-          </Button> */}
+
         </Flex>
       </Flex>
     </Flex >

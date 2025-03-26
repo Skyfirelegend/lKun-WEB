@@ -27,6 +27,8 @@ import BanBtn from './img/BanBtn.svg'
 const { Text } = Typography;
 import FadeInContainer from '../../../components/common'
 
+import { cpo_address } from "../../../utils/address";
+
 
 
 const frame = [
@@ -83,7 +85,7 @@ const Index = () => {
   const [cView, setCView] = useState(0)
 
   useEffect(() => {
-    document.title = '模型训练与推理';
+    document.title = '模型训练与推理-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 
@@ -93,8 +95,7 @@ const Index = () => {
         <div className={styles.compute}>
           <div className={styles.banner}>
             <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={modelBanner} alt="" />
-            {/* <img style={{ width: '20%', left: '5%', transform: 'translate(0%,-170%)', aspectRatio: 'auto 335/97', position: 'absolute', zIndex: 3 }} src={BanBtn} alt="" /> */}
-            <div><a className={styles.btn3} href="http://8.134.32.42:20000/mirror-repository">立即使用</a></div>
+            <div><a className={styles.btn3} href={`${cpo_address}/mirror-repository`}>立即使用</a></div>
             <div><a className={styles.btn4} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
@@ -148,8 +149,7 @@ const Index = () => {
 
           <div className={styles.modelWrapper}>
             <div className={styles.btn}>
-              <div><a href="http://8.134.32.42:20000/mirror-repository">立即使用  →</a></div>
-              {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
+              <div><a href={`${cpo_address}/mirror-repository`}>立即使用  →</a></div>
             </div>
             <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>

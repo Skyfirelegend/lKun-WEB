@@ -14,8 +14,8 @@ const Introduce = () => {
   const [cView, setCView] = useState(0);
 
   useEffect(() => {
-    document.title = '公司介绍';
-    // window.scrollTo(0, 0);
+    document.title = '公司介绍-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -24,27 +24,6 @@ const Introduce = () => {
         <div className={styles.banner}>
           <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={aboutBanner} alt="" />
         </div>
-
-        {/* <div className={styles.ClickBtn}>
-          <Button
-            className={styles.ClickBtnItem}
-            onClick={() => setCView(0)}
-          >
-            朗科科技
-          </Button>
-          <Button
-            className={styles.ClickBtnItem}
-            onClick={() => setCView(1)}
-          >
-            朗坤科技
-          </Button>
-          <Button
-            className={styles.ClickBtnItem}
-            onClick={() => setCView(2)}
-          >
-            联合实验室
-          </Button>
-        </div> */}
 
 
         <div className={styles.ClickBtn}>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Card, Select, Modal, Form, Input, Button, Typography } from "antd";
-import { Tips } from '../../login/page'
 import chip from "../img/chip.png";
 import doc from "../img/doc.png";
 import settingIcon from "../img/settingIcon.png";
@@ -14,6 +13,8 @@ const { Text } = Typography;
 import styles2 from "./index.module.less";
 import TestPic1 from "./img/TestPic1.svg";
 import cusmIcon from "./img/cusmIcon.svg";
+
+import { cpo_address } from "../../../utils/address";
 
 const serverData = [
   {
@@ -102,12 +103,13 @@ const serverData = [
     costPrice2: "39998"
   },
 ];
+
 const Index = () => {
   const [showClick1, setClick1] = useState(true);
   const [showClick2, setClick2] = useState(1);
 
   useEffect(() => {
-    document.title = '弹性AI算力资源';
+    document.title = '弹性AI算力资源-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务';
     window.scrollTo(0, 0);
   }, []);
 
@@ -164,11 +166,6 @@ const Index = () => {
             {serverData.map((item) => {
               return (
                 <Card hoverable className={styles.items} key={item.name[0]}>
-                  {/* {item.name.map((str) => (
-                    <div key={str} className={styles.name}>
-                      {str}
-                    </div>
-                  ))} */}
                   <div className={styles.settingWrapper}>
                     {item.name.map((str) => (
                       <div key={str} className={styles.name2}>
@@ -250,77 +247,19 @@ const Index = () => {
                         </div>
 
                       }
-                      <div className={styles.buyBtn}><a href="http://8.134.32.42:20000/cloud">立即购买</a></div>
+                      <div className={styles.buyBtn}><a href={`${cpo_address}/cloud`}>立即购买</a></div>
                     </div>
                   </div>
 
-                  {/* <div className={styles.buyTime}>
-                    <div className={styles.label}>购买时间</div>
-                    <div className={styles.value}>
-
-                    </div>
-                  </div> */}
-                  {/* <div className={styles.buyBtn}><a href="http://8.134.32.42:20000/cloud">立即购买</a></div> */}
                 </Card>
               );
             })}
           </div>
 
-          {/* <div className={styles.content2}>
-            {serverData.map((item) => {
-              return (
-                <Card hoverable className={styles.items} key={item.name[0]}>
-                  {item.name.map((str) => (
-                    <div key={str} className={styles.name}>
-                      {str}
-                    </div>
-                  ))}
-                  <div className={styles.settingWrapper}>
-                    {item.setting.map((el, index) => (
-                      <div key={el.type} className={styles.settingItemWrapper}>
-                        <div className={styles.settingItem}>
-                          <div className={styles.name}>
-                            <img src={index === 2 ? doc : chip} alt="" />
-                            <div className={styles.nameText}>{el.name}</div>
-                          </div>
-                          <div className={styles.type}>{el.type}</div>
-                        </div>
-                        {index != 2 && <div className={styles.line}></div>}
-                      </div>
-                    ))}
-                  </div>
-                  <div className={styles.price}>
-                    <div className={styles.label}>价格<span style={{ fontStyle: 'italic', fontWeight: '700', fontSize: '28px', color: 'rgba(255, 120, 0, 1)' }}> 低至5折！</span></div>
-                    <div className={styles.value}>￥<span style={{ fontSize: '28px', color: 'rgba(255, 120, 0, 1)' }}>{item.price}</span><Text delete>{item.costPrice}</Text>/月</div>
-                  </div>
-                  <div className={styles.buyTime}>
-                    <div className={styles.label}>购买时间</div>
-                    <div className={styles.value}>
-                      <Select
-                        defaultValue={"1"}
-                        style={{ width: 90 }}
-                        variant="borderless"
-                        options={[
-                          { value: "1", label: "1个月", color: "" },
-                          { value: "6", label: "6个月" },
-                          { value: "12", label: "12个月" },
-                        ]}
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.buyBtn}><a href="/informationFilling">立即购买</a></div>
-                </Card>
-              );
-            })}
-          </div> */}
-
-
-
         </div>
         <div className={styles.serverBtn}>
           <div className={styles.btn}>
-            <div><a href="http://8.134.32.42:20000/cloud">立即使用  →</a></div>
-            {/* <div style={{ borderRadus: '0px', transform: 'translate(160%,-60%)' }}><a href="/informationFilling">咨询更多</a></div> */}
+            <div><a href={`${cpo_address}/cloud`}>立即使用  →</a></div>
           </div>
           <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
         </div>

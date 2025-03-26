@@ -206,7 +206,7 @@ const Index = () => {
   const getnowpage = params.get("nowpage");
 
   useEffect(() => {
-    document.title = '产品文档';
+    document.title = '产品文档-朗科算力调度平台-粤港澳大湾区韶关集群一站式算力调度服务s';
   })
 
   const divRef = useRef(null);

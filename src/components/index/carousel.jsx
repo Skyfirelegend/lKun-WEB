@@ -14,6 +14,7 @@ const CPOCarousel = () => {
     <Carousel
       autoplay
       className='animate__animated  animate__fadeIn'
+    // draggable="true"
     >
       <img style={{ width: '100%', height: 'auto', aspectratio: 'auto 2160/840' }} aria-labelledby="banner" src={banner1} />
       <img style={{ width: '100%', height: 'auto', aspectRatio: 'auto 2160/840' }} aria-labelledby="banner" src={banner2} />
