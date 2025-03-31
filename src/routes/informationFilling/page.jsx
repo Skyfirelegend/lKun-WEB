@@ -160,7 +160,7 @@ const InformationFilling = () => {
               ]}
             >
               {/* <Input placeholder='请输入您的需求' className={styles.myInput} /> */}
-              <Input.TextArea showCount='true' style={{ resize: 'none' }} placeholder='请输入您的需求' rows={3} />
+              <Input.TextArea showCount='true' style={{ resize: 'none' }} maxLength="300" placeholder='请输入您的需求' rows={3} />
             </Form.Item>
             <Form.Item>
               <Button htmlType="submit"
