@@ -18,6 +18,8 @@ import 'github-markdown-css/github-markdown.css';
 import Cost from "./markdown/Cost"
 import { calc } from 'antd/es/theme/internal';
 
+import { cpo_address } from '../../utils/address';
+
 const items = [
   {
     label: 'AI算力云服务',
@@ -298,7 +300,7 @@ const Index = () => {
           }}
         >
           <div className={styles.draggableHandle} onMouseDown={handleMouseDown}></div>
-          <a href='/document' className={styles.firstitem}>产品文档</a>
+          <a href={`${cpo_address}/doc`} className={styles.firstitem}>产品文档</a>
           <Menu
             mode='inline'
             className='sider_menu'
