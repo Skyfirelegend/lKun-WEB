@@ -5,9 +5,9 @@ const api_proxy_address = "http://8.134.32.42:8000"
 // const api_proxy_address = "http://47.115.73.132:8000"
 
 
-// const api_address = "http://8.134.32.42:8000"
+const api_address = "http://8.134.32.42:8000"
 // const api_address = "http://47.115.73.132:8000"
-const api_address = ""
+// const api_address = ""
 
 export {
     cpo_address,

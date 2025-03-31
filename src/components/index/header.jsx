@@ -4,14 +4,15 @@ import { Link } from '@modern-js/runtime/router';
 
 const { Text, } = Typography;
 import React, { useState, useEffect, useRef } from 'react';
-import logo from '../../static/logo.png';
+import logo from '../../static/logo.svg';
 
 import styles from "./index.module.less";
 
-import { cpo_address } from "../../utils/address"
+import { cpo_address } from "../../utils/address";
+
+import UserPanel from "./userpanel";
 
 const pathname = window.location.pathname
-
 
 
 const CPOHeader = () => {
@@ -19,6 +20,7 @@ const CPOHeader = () => {
 
   const params = new URLSearchParams(window.location.search);
   const getkey = params.get("gotopage");
+  const [showUserPanel, setUserPanel] = useState(false);
 
   // const locationRef = useRef(location)
   // locationRef.current = location
@@ -144,6 +146,13 @@ const CPOHeader = () => {
     '联系我们-关于我们': '/about/ContactUs',
     '信息收集': '/informationFilling',
   }
+
+  const drop_items = [
+    {
+      label: <UserPanel onClose={() => setUserPanel(false)} />,
+      key: '1',
+    }
+  ]
 
   const handleClick = (e) => {
     setSelectedKey(e.key);
@@ -312,7 +321,18 @@ const CPOHeader = () => {
             登录
           </Button>
 
+          {/* <Button color="default" variant="link" href={`${cpo_address}/fast-entrence`}
+            style={{
+              // fontSize: '14px',
+              fontSize: '100%',
+              // fontSize: '0.93vw',
+            }}
+          >
+            调度系统
+          </Button> */}
+
         </Flex>
+
 
         <Flex
           justify="center"
@@ -330,6 +350,17 @@ const CPOHeader = () => {
           >
             <Text style={{ color: 'rgba(255, 255, 255, 1)' }}>注册</Text>
           </Button>
+
+          {/* <Dropdown
+            overlayClassName={styles.dropDown}
+            menu={{
+              drop_items,
+            }}
+          >
+            <span>
+              2
+            </span>
+          </Dropdown> */}
 
         </Flex>
       </Flex>
