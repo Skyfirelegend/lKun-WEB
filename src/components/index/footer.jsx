@@ -183,7 +183,7 @@ const CPOFooter = () => {
               paddingTop: '19px'
             }}
           >
-            <a href="https://beian.miit.gov.cn/#/Integrated/index"
+            <a href="https://beian.miit.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
               style={{

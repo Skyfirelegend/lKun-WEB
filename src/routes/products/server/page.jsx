@@ -152,7 +152,7 @@ const Index = () => {
               <div className={styles2.Text1}>
                 包年包月计费更优惠，适合中长期稳定的IT需求。
               </div>
-              <a className={styles2.cusmDesc} href="/document?gotopage=document&nowpage=Cost" target="_blank">
+              <a className={styles2.cusmDesc} href={`${cpo_address}/doc?id=22`} target="_blank">
                 <div className={styles2.Text2}>
                   计费说明
                 </div>
