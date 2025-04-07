@@ -14,8 +14,8 @@ import FadeInContainer from '../../../components/common'
 import styles2 from "./index.module.less";
 
 import BanBtn from './img/BanBtn.svg'
-import CloudPic1 from "./img/CloudPic12.svg";
-import CloudPic2 from "./img/CloudPic22.svg";
+import CloudPic1 from "./img/CloudPic1.svg";
+import CloudPic2 from "./img/CloudPic2.svg";
 import cloudBanner from '../img/cloudBanner.png';
 
 import 'animate.css'
