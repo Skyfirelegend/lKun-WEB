@@ -15,7 +15,7 @@ const ContactUs = () => {
     <FadeInContainer children={
       <>
         <div className={styles.banner}>
-          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={aboutBanner} alt="" />
+          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} draggable="false" src={aboutBanner} alt="" />
         </div>
         <div className={styles.tabs}>
           <div className={styles.contactUs}>

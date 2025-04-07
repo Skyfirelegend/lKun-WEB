@@ -22,7 +22,7 @@ const Introduce = () => {
     <FadeInContainer children={
       <>
         <div className={styles.banner}>
-          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={aboutBanner} alt="" />
+          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={aboutBanner} draggable="false" alt="" />
         </div>
 
 

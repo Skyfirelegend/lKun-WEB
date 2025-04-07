@@ -94,7 +94,7 @@ const Index = () => {
       <div className={styles.products} id="products">
         <div className={styles.compute}>
           <div className={styles.banner}>
-            <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={modelBanner} alt="" />
+            <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} className={styles.loadPicture} draggable="false" src={modelBanner} alt="" />
             <div><a className={styles.btn3} href={`${cpo_address}/mirror-repository`}>立即使用</a></div>
             <div><a className={styles.btn4} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>

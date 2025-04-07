@@ -1226,11 +1226,24 @@
       background-repeat: no-repeat;
       z-index: 2;
 
+      -webkit-user-select:none;/*谷歌 /Chrome*/
+      -moz-user-select:none; /*火狐/Firefox*/
+      -ms-user-select:none;    /*IE 10+*/
+      user-select:none;
+
 
       img {
         display: block;
         width: 100%;
       }
     }
+
+    .loadPicture{
+      -webkit-user-select:none;/*谷歌 /Chrome*/
+      -moz-user-select:none; /*火狐/Firefox*/
+      -ms-user-select:none;    /*IE 10+*/
+      user-select:none;
+    }
+
   }
 }

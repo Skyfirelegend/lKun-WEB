@@ -118,7 +118,7 @@ const Index = () => {
       <div className={styles.products} id="products">
         <div className={styles.serverWrapper}>
           <div className={styles.banner}>
-            <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={serveBanner} alt="" />
+            <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} className={styles.loadPicture} draggable="false" src={serveBanner} alt="" />
             {/* <div className={styles.title}>裸金属服务器</div>
             <div className={styles.desc}>
               裸金属服务器（Bare

@@ -37,7 +37,7 @@ const Index = () => {
       <div className={styles.products} id="products">
         <div className={styles.compute}>
           <div className={styles.banner}>
-            <img style={{ width: '100%', height: 'auto', objectFit: 'contain', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={computeBanner} alt="" />
+            <img style={{ width: '100%', height: 'auto', objectFit: 'contain', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} className={styles.loadPicture} draggable="false" src={computeBanner} alt="" />
             <div><a className={styles.btn1} href={`${cpo_address}/overview`}>立即使用</a></div>
             <div><a className={styles.btn2} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
@@ -77,17 +77,17 @@ const Index = () => {
                       <div
                         className={styles2.myCardWrapper}
                       >
-                        <img src={cardBg1} alt="" />
+                        <img src={cardBg1} draggable="false" alt="" />
                       </div>
                       <div
                         className={styles2.myCardWrapper}
                       >
-                        <img src={cardBg2} alt="" />
+                        <img src={cardBg2} draggable="false" alt="" />
                       </div>
                       <div
                         className={styles2.myCardWrapper}
                       >
-                        <img src={cardBg3} alt="" />
+                        <img src={cardBg3} draggable="false" alt="" />
                       </div>
                     </div>
                   }
@@ -98,17 +98,17 @@ const Index = () => {
                       <div
                         className={styles2.myCardWrapper2}
                       >
-                        <img src={cardBg4} alt="" />
+                        <img src={cardBg4} draggable="false" alt="" />
                       </div>
                       <div
                         className={styles2.myCardWrapper2}
                       >
-                        <img src={cardBg5} alt="" />
+                        <img src={cardBg5} draggable="false" alt="" />
                       </div>
                       <div
                         className={styles2.myCardWrapper2}
                       >
-                        <img src={cardBg6} alt="" />
+                        <img src={cardBg6} draggable="false" alt="" />
                       </div>
                     </div>
                   }

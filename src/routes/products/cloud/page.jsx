@@ -14,8 +14,8 @@ import FadeInContainer from '../../../components/common'
 import styles2 from "./index.module.less";
 
 import BanBtn from './img/BanBtn.svg'
-import CloudPic1 from "./img/CloudPic1.svg";
-import CloudPic2 from "./img/CloudPic2.svg";
+import CloudPic1 from "./img/CloudPic12.svg";
+import CloudPic2 from "./img/CloudPic22.svg";
 import cloudBanner from '../img/cloudBanner.png';
 
 import 'animate.css'
@@ -36,7 +36,7 @@ const Index = () => {
       <div className={styles.products} id="products">
         <div className={styles.compute}>
           <div className={styles.banner}>
-            <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} src={cloudBanner} alt="" />
+            <img style={{ width: '100%', aspectRatio: 'auto 2160/520', position: 'relative', zIndex: 2 }} className={styles.loadPicture} draggable="false" src={cloudBanner} alt="" />
             <div><a className={styles.btn5} href="/informationFilling?gotopage=info">了解更多</a></div>
           </div>
 
@@ -60,13 +60,13 @@ const Index = () => {
           <div className={styles.frameworkPicWrapper}>
             {
               cView === 0 &&
-              <img src={CloudPic1} alt="" />
+              <img src={CloudPic1} className={styles.loadPicture} draggable="false" alt="" />
               // <div className={styles2.PicAnimate}><img src={CloudPic1} alt="" /></div>
               // <div className="animate__animated animate__fadeIn" style={{ '--animate-duration': '0.5s' }}><img src={CloudPic1} alt="" /></div>
             }
             {
               cView === 1 &&
-              <img src={CloudPic2} alt="" />
+              <img src={CloudPic2} className={styles.loadPicture} draggable="false" alt="" />
             }
           </div>
 

@@ -30,7 +30,7 @@ const Index = () => {
     <FadeInContainer children={
       <div className={styles.example}>
         <div className={styles.banner}>
-          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} src={banner} alt="" />
+          <img style={{ width: '100%', aspectRatio: 'auto 2160/520' }} draggable="false" src={banner} alt="" />
           {/* <div className={styles.title}>客户案例</div>
         <div className={styles.subTitle}>赋能高校客户科学研究，助力企业客户数字转型，支持算力</div>
         <div className={styles.subTitle}>集群客户算力调度。</div> */}
