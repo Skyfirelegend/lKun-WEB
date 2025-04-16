@@ -9,11 +9,10 @@ import logo from '../../static/logo.svg';
 import styles from "./index.module.less";
 
 import { cpo_address } from "../../utils/address";
-
+import { useLocation } from "@modern-js/runtime/router";
 import UserPanel from "./userpanel";
 
 const pathname = window.location.pathname
-
 
 const CPOHeader = () => {
   // const [current, setCurrent] = useState('index');
@@ -162,7 +161,7 @@ const CPOHeader = () => {
     setSelectedKey('index');
   };
 
-
+  const location = useLocation();
   useEffect(() => {
     // console.log(pathname)
     // console.log(location.pathname)
