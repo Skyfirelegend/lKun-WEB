@@ -23,11 +23,11 @@ const serverData = [
       {
         name: "GPU",
         // type: "2*海光4 C86",
-        type: "2*海光4 C86",
+        type: "8*曦云C550",
       },
       {
         name: "CPU",
-        type: "8*曦云C550",
+        type: "2*海光4 C86",
       },
       {
         name: "内存",
@@ -86,7 +86,7 @@ const serverData = [
     setting: [
       {
         name: "GPU",
-        type: "8*英伟达H100",
+        type: "英伟达高性能卡",
       },
       {
         name: "CPU",
